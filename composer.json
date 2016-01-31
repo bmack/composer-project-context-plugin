@@ -1,0 +1,33 @@
+{
+  "name": "bmack/composer-projectcontext",
+  "type": "composer-plugin",
+  "license": "MIT",
+  "description": "TYPO3 CMS Installers",
+  "keywords": [
+    "project root", "composer"
+  ],
+  "homepage": "http://www.b13.de/",
+  "authors": [
+    {
+      "name": "Benni Mack",
+      "email": "benjamin.mack@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": { "Bmack\\ComposerProjectContext\\": "src/"}
+  },
+  "require": {
+    "php": ">=5.5.0",
+    "composer-plugin-api": "^1.0.0"
+  },
+  "require-dev": {
+    "composer/composer": "1.*"
+  },
+  "extra": {
+    "class": "Bmack\\ComposerProjectContext\\Composer\\Plugin",
+    "branch-alias": {
+      "dev-master": "1.2.x-dev"
+    }
+  }
+}
