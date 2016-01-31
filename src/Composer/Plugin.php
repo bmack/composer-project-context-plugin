@@ -24,16 +24,6 @@ use Composer\Script\ScriptEvents;
 class Plugin implements PluginInterface, EventSubscriberInterface
 {
     /**
-     * @var Composer
-     */
-    protected $composer;
-
-    /**
-     * @var  IOInterface
-     */
-    protected $io;
-
-    /**
      * {@inheritdoc}
      */
     public static function getSubscribedEvents()
@@ -48,8 +38,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
      */
     public function activate(Composer $composer, IOInterface $io)
     {
-        $this->composer;
-        $this->io;
+        // does nothing for activation
     }
 
     /**
@@ -58,7 +47,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
      * @param \Composer\Script\Event $event
      */
     public function addProjectRootToAutoloader(\Composer\Script\Event $event) {
-        $composerConfig = $this->composer->getConfig();
+        $composerConfig = $event->getComposer()->getConfig();
         $vendorDir = $composerConfig->get('vendor-dir');
         $autoloadFile = $vendorDir . '/autoload.php';
         if (!file_exists($autoloadFile)) {
@@ -68,7 +57,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
             ));
         }
 
-        $this->io->write('<info>Inserting BMACK_PROJECTROOT constant</info>');
+        $event->getIO()->write('<info>Inserting BMACK_PROJECTROOT constant</info>');
         $contents = file_get_contents($autoloadFile);
         $constant = "if (!defined('BMACK_PROJECTROOT')) {\n";
         $constant .= "	define('BMACK_PROJECTROOT', '" . getcwd() . "'');\n";
