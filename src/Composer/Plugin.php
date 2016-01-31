@@ -60,7 +60,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
         $event->getIO()->write('<info>Inserting BMACK_PROJECTROOT constant</info>');
         $contents = file_get_contents($autoloadFile);
         $constant = "if (!defined('BMACK_PROJECTROOT')) {\n";
-        $constant .= "	define('BMACK_PROJECTROOT', '" . getcwd() . "'');\n";
+        $constant .= "	define('BMACK_PROJECTROOT', '" . getcwd() . "');\n";
         $constant .= "}\n\n";
         // Regex modifiers:
         // "m": \s matches newlines
