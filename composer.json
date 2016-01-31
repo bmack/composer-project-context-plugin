@@ -2,7 +2,7 @@
   "name": "bmack/composer-projectcontext",
   "type": "composer-plugin",
   "license": "MIT",
-  "description": "TYPO3 CMS Installers",
+  "description": "Versatile lightweight package to detect a composers' root path.",
   "keywords": [
     "project root", "composer"
   ],
