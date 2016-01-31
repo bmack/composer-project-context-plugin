@@ -1,0 +1,15 @@
+#
+# Ignore temporary files (left by editors)
+*~
+*.bak
+*.swp
+
+#
+# Ignore common IDE-related directories/files
+*.idea
+*.project
+
+#
+# Ignore composer dependencies
+bin/*
+vendor/*
